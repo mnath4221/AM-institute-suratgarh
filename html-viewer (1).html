@@ -1,0 +1,573 @@
+<!doctype html>
+<html><head><meta charset='utf-8'><title>Preview</title><style>body{font-family:system-ui;padding:16px}
+iframe, img{max-width:100%}</style></head><body><!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AM Institute Suratgarh - Online Quiz & Test Series 2026</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #d97706;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --border: #cbd5e1;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f1f5f9;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+      color: #fbbf24;
+    }
+    .brand p {
+      font-size: 0.85rem;
+      color: #e2e8f0;
+    }
+    .header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .helpline-badge {
+      background: #pc2626;
+      color: ♥️ 
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-warning { background: var(--secondary); color: #fff; }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      border: 1px solid #e2e8f0;
+    }
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 8px;
+    }
+    .hidden { display: none !important; }
+
+    /* Form Controls */
+    .form-group { margin-bottom: 14px; }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    /* Exam Badges */
+    .exam-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 15px 0;
+    }
+    .exam-item {
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #f8fafc;
+    }
+    .exam-item.active, .exam-item:hover {
+      border-color: var(--primary);
+      background: #eff6ff;
+      font-weight: 700;
+    }
+    .exam-item span {
+      display: block;
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Quiz Top Bar */
+    .quiz-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #1e293b;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .timer-box {
+      background: #dc2626;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .q-timer-box {
+      background: #d97706;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .option-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.98rem;
+      transition: 0.15s;
+    }
+    .option-btn:hover { background: #f8fafc; border-color: #94a3b8; }
+    .option-btn.selected {
+      background: #dbeafe;
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+    .badge-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      background: #e0e7ff;
+      color: #1e3a8a;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+
+    /* Result Stats */
+    .stat-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .stat-box h3 { font-size: 1.5rem; margin-top: 4px; }
+
+    /* Certificate */
+    #certificateBox {
+      border: 8px double #1e3a8a;
+      background: #fffdf5;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-top: 25px;
+      position: relative;
+    }
+    #certificateBox h1 {
+      color: #1e3a8a;
+      font-size: 1.9rem;
+      text-transform: uppercase;
+    }
+    #certificateBox h3 {
+      color: #b45309;
+      margin: 6px 0 15px;
+    }
+    .cert-student {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 2px dashed #1e3a8a;
+      display: inline-block;
+      padding: 2px 20px;
+      margin: 10px 0;
+    }
+    .cert-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #cbd5e1;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f172a;
+      color: #cbd5e1;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    @media print {
+      body * { visibility: hidden; }
+      #certificateBox, #certificateBox * { visibility: visible; }
+      #certificateBox {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <h1>AM Institute Suratgarh</h1>
+      <p>All India Online Quiz & Test Series Portal (2026 Latest Syllabus)</p>
+    </div>
+    <div class="header-right">
+      <a href="tel:9664184009" class="helpline-badge">Helpline: 9664184009</a>
+      <button class="btn btn-outline" onclick="toggleSyllabusModal()">2026 Syllabus</button>
+      <button class="btn btn-warning" onclick="openAdminModal()">Admin Panel</button>
+      <button class="btn btn-danger hidden" id="logoutBtn" onclick="logoutStudent()">Logout</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. STUDENT OTP LOGIN SECTION -->
+    <div class="card" id="loginSection">
+      <h2>Student Login (OTP Verification)</h2>
+      <p style="margin-bottom: 14px; color:#475569;">
+        Verified your identity
+      </p>
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Student full Name*</label>
+          <input type="text" id="stuName" placeholder="Alisha" />
+        </div>
+        <div class="form-group">
+          <label>Mobile Number or Email ID *</label>
+          <input type="text" id="stuContact" placeholder="97XXXXXXXX" />
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="sendOTP()">Send OTP</button>
+
+      <div id="otpBox" class="hidden" style="margin-top: 18px; padding-top: 15px; border-top: 1px solid #e2e8f0;">
+        <p id="demoOtpAlert" style="color:#16a34a; font-weight:700; margin-bottom:8px;"></p>
+        <div class="form-group" style="max-width: 300px;">
+          <label>4-Digit OTP Darj Karein</label>
+          <input type="number" id="otpInput" placeholder="XXXX" />
+        </div>
+        <button class="btn btn-success" onclick="verifyOTP()">Verify & Login</button>
+      </div>
+    </div>
+
+    <!-- 2. STUDENT DASHBOARD & QUIZ SETUP -->
+    <div class="card hidden" id="dashboardSection">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+        <h2>Welcome, <span id="dispStuName"></span></h2>
+        <span class="badge-tag" id="dispStuId" style="font-size:0.9rem; padding:6px 12px;"></span>
+      </div>
+
+      <p style="margin-bottom:10px; font-weight:600;">1. Apna Exam Chunein (2026 Pattern | 1/3 Negative Marking):</p>
+      <div class="exam-grid" id="examGrid"></div>
+
+      <div class="grid-3" style="margin-top:18px;">
+        <div class="form-group">
+          <label>2. Question Type Filter</label>
+          <select id="qTypeSelect">
+            <option value="ALL">Mix (PYQ + New 2026 Pattern)</option>
+            <option value="PYQ">Previous Year Questions (PYQ Only)</option>
+            <option value="NEW">New Types Questions (2026 Statement/Analytical)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>3. Total MCQ & Auto Time Ratio</label>
+          <select id="mcqPresetSelect" onchange="syncCustomInfo()">
+            <option value="15|18">15 MCQ = 18 Min (Standard Ratio)</option>
+            <option value="15|15">15 MCQ = 15 Min (1 Min/Q)</option>
+            <option value="30|36">30 MCQ = 36 Min</option>
+            <option value="45|54">45 MCQ = 54 Min</option>
+            <option value="60|72">60 MCQ = 72 Min</option>
+            <option value="80|96">80 MCQ = 96 Min</option>
+            <option value="120|144">120 MCQ = 144 Min</option>
+            <option value="150|180">150 MCQ = 180 Min (Full Exam Length)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>4. Per Question Timer (Seconds Chunein)</label>
+          <select id="perQSecSelect">
+            <option value="60">60 Seconds (1 Min / Question - Default)</option>
+            <option value="15">15 Seconds / Question</option>
+            <option value="30">30 Seconds / Question</option>
+            <option value="45">45 Seconds / Question</option>
+            <option value="80">80 Seconds / Question</option>
+            <option value="120">120 Seconds / Question</option>
+            <option value="180">180 Seconds / Question</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="background:#eff6ff; border-left:4px solid #1e3a8a; padding:12px; margin:12px 0; font-size:0.9rem;">
+        <strong>Niyam (Rules):</strong> Sahi uttar par <strong>+1 mark</strong> milega aur galat uttar par <strong>1/3 (0.33) Negative Marking</strong> kategi. Question ka samay samapt hone par wah question <em>Time Out</em> mein darj hoga.
+      </div>
+
+      <button class="btn btn-primary" style="width:100%; padding:12px; font-size:1.05rem;" onclick="startQuiz()">
+        Automatic Quiz Generate Karein & Test Shuru Karein
+      </button>
+    </div>
+
+    <!-- 3. ACTIVE QUIZ INTERFACE -->
+    <div class="card hidden" id="quizSection">
+      <div class="quiz-topbar">
+        <div>
+          <strong id="activeExamTitle">Exam</strong> |
+          <span>Q: <span id="qIndexDisp">1</span>/<span id="qTotalDisp">15</span></span>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <div class="q-timer-box">Question Time: <span id="qSecTimer">60</span>s</div>
+          <div class="timer-box">Total Time: <span id="totalTimer">18:00</span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px;">
+        <span class="badge-tag" id="qCategoryBadge">2026 Syllabus</span>
+        <span class="badge-tag" id="qTypeBadge" style="background:#fef3c7; color:#92400e;">PYQ</span>
+        <span class="badge-tag" style="background:#fee2e2; color:#991b1b;">Negative Marking: 1/3</span>
+      </div>
+
+      <h3 id="questionText" style="margin-bottom:16px; font-size:1.15rem;"></h3>
+      <div id="optionsContainer"></div>
+
+      <div style="display:flex; justify-content:space-between; margin-top:18px; flex-wrap:wrap; gap:10px;">
+        <button class="btn btn-warning" onclick="skipQuestion()">Skip / Next Question</button>
+        <button class="btn btn-success" onclick="saveAndNext()">Save & Next</button>
+        <button class="btn btn-danger" onclick="finishQuiz()">Submit Test</button>
+      </div>
+    </div>
+
+    <!-- 4. RESULT & CERTIFICATE SECTION -->
+    <div class="card hidden" id="resultSection">
+      <h2>Test Result Summary - AM Institute Suratgarh</h2>
+      <div class="grid-3" style="margin-top:15px;">
+        <div class="stat-box">
+          <span>Kul MCQ (Total Questions)</span>
+          <h3 id="resTotalQ">0</h3>
+        </div>
+        <div class="stat-box" style="border-color:#16a34a;">
+          <span style="color:#16a34a;">Total Sahi Answer (+1)</span>
+          <h3 id="resCorrect" style="color:#16a34a;">0</h3>
+        </div>
+        <div class="stat-box" style="border-color:#dc2626;">
+          <span style="color:#dc2626;">Wrong Answer</span>
+          <h3 id="resWrong" style="color:#dc2626;">0</h3>
+        </div>
+        <div class="stat-box" style="border-color:#d97706;">
+          <span style="color:#d97706;">1/3 Negative Marking Kati</span>
+          <h3 id="resNegative" style="color:#d97706;">-0.00</h3>
+        </div>
+        <div class="stat-box">
+          <span>Time Out / Unattempted</span>
+          <h3 id="resTimeout">0</h3>
+        </div>
+        <div class="stat-box" style="background:#eff6ff; border-color:#1e3a8a;">
+          <span style="color:#1e3a8a; font-weight:700;">Final Score</span>
+          <h3 id="resFinalScore" style="color:#1e3a8a;">0.00</h3>
+        </div>
+      </div>
+
+      <!-- OFFICIAL CERTIFICATE -->
+      <div id="certificateBox">
+        <h1>AM INSTITUTE SURATGARH</h1>
+        <h3>Online Test Series Achievement Certificate (Session 2026)</h3>
+        <p>Yah pramanit kiya jata hai ki Vidyarthi</p>
+        <div class="cert-student" id="certStuName">Student Name</div>
+        <p style="margin-top:6px;">
+          Student ID: <strong id="certStuId"></strong> ne <strong>AM Institute Suratgarh</strong> dwara aayojit
+          <strong id="certExamName"></strong> (2026 Latest Syllabus Pattern) Online Test safaltapurvak purn kiya hai.
+        </p>
+        <p style="margin-top:10px; font-size:0.95rem;">
+          Kul Prashn: <strong id="certTotalQ"></strong> |
+          Sahi Uttar: <strong id="certCorrect"></strong> |
+          Galat Uttar: <strong id="certWrong"></strong> |
+          1/3 Negative Marking ke baad Kul Praptank: <strong id="certScore"></strong>
+        </p>
+        <div class="cert-footer">
+          <div><strong>Date:</strong> <span id="certDate"></span></div>
+          <div><strong>Helpline:</strong> 9664184009</div>
+          <div><strong>Authorized Signatory:</strong> Director, AM Institute Suratgarh</div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="window.print()">Download / Print Certificate</button>
+        <button class="btn btn-warning" onclick="backToDashboard()">Back to Dashboard (New Test)</button>
+      </div>
+    </div>
+
+    <!-- 5. 2026 SYLLABUS MODAL / SECTION -->
+    <div class="card hidden" id="syllabusSection">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>All Exams Updated Syllabus (2026 Pattern)</h2>
+        <button class="btn btn-danger" onclick="toggleSyllabusModal()">Close</button>
+      </div>
+      <div id="syllabusList" style="margin-top:12px;"></div>
+    </div>
+
+    <!-- 6. ADMIN PANEL SECTION -->
+    <div class="card hidden" id="adminSection">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Admin Control Panel (Only Admin Access)</h2>
+        <button class="btn btn-danger" onclick="closeAdminPanel()">Close Admin</button>
+      </div>
+
+      <!-- Admin Login -->
+      <div id="adminLoginBox" style="margin-top:15px;">
+        <p style="margin-bottom:10px; color:#475569;">
+          Sirf Admin hi badlav kar sakte hain. (Default ID: <strong>admin</strong> | Password: <strong>AM2026</strong>)
+        </p>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Admin ID</label>
+            <input type="text" id="adminIdInput" placeholder="admin" />
+          </div>
+          <div class="form-group">
+            <label>Admin Password</label>
+            <input type="password" id="adminPassInput" placeholder="Password" />
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="verifyAdmin()">Login to Admin Panel</button>
+      </div>
+
+      <!-- Admin Controls -->
+      <div id="adminControls" class="hidden" style="margin-top:18px;">
+        <h3 style="margin-bottom:10px; color:#1e3a8a;">Naya Question Jodein (Add MCQ)</h3>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Exam Category</label>
+            <select id="admExam"></select>
+          </div>
+          <div class="form-group">
+            <label>Question Type</label>
+            <select id="admType">
+              <option value="PYQ">Previous Year Question (PYQ)</option>
+              <option value="NEW">New Type Question (2026 Pattern)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Question Text (Hindi / English)</label>
+          <textarea id="admQText" rows="2" placeholder="Apna prashn yahan likhein..."></textarea>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Option A</label><input type="text" id="admOptA" /></div>
+          <div class="form-group"><label>Option B</label><input type="text" id="admOptB" /></div>
+          <div class="form-group"><label>Option C</label><input type="text" id="admOptC" /></div>
+          <div class="form-group"><label>Option D</label><input type="text" id="admOptD" /></div>
+        </div>
+        <div class="form-group">
+          <label>Sahi Option Chunein (Correct Answer)</label>
+          <select id="admCorrect">
+            <option value="0">Option A</option>
+            <option value="1">Option B</option>
+            <option value="2">Option C</option>
+            <option value="3">Option D</option>
+          </select>
+        </div>
+        <button class="btn btn-success" onclick="adminAddQuestion()">Save Question to Bank</button>
+
+        <hr style="margin:20px 0; border:1px solid #e2e8f0;" />
+        <h3>2026 Syllabus Update Karein</h3>
+        <div class="form-group" style="margin-top:8px;">
+          <label>Exam Chunein</label>
+          <select id="admSylExam" onchange="loadAdminSyllabus()"></select>
+        </div>
+        <div class="form-group">
+          <label>2026 Syllabus Details</label>
+          <textarea id="admSylText" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="adminSaveSyllabus()">Update Syllabus</button>
+
+        <hr style="margin:20px 0; border:1px solid #e2e8f0;" />
+        <h3>Question Bank Summary (<span id="admTotalQCount">0</span> Base Questions + Auto Generator Enabled)</h3>
+        <div id="adminQuestionList" style="max-height:220px; overflow-y:auto; margin-top:10px; font-size:0.88rem;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p><strong>AM Institute Suratgarh</strong> —  All Coyright Received ©️ <script>console.log('Viewer ready');</script></body></html>
